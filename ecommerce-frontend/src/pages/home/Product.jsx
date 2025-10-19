@@ -21,25 +21,27 @@ export function Product({ product, loadCart }) {
   return (
     <div className="product-container">
       <div className="product-image-container">
-        <img className="product-image"
-          src={product.image} />
+        <img
+          className="product-image"
+          data-testid="product-img"
+          src={product.image}
+        />
       </div>
 
-      <div className="product-name limit-text-to-2-lines">
-        {product.name}
-      </div>
+      <div className="product-name limit-text-to-2-lines">{product.name}</div>
 
       <div className="product-rating-container">
-        <img className="product-rating-stars"
-          src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
+        <img
+          className="product-rating-stars"
+          data-testid="product-rating-stars"
+          src={`images/ratings/rating-${product.rating.stars * 10}.png`}
+        />
         <div className="product-rating-count link-primary">
           {product.rating.count}
         </div>
       </div>
 
-      <div className="product-price">
-        {formatMoney(product.priceCents)}
-      </div>
+      <div className="product-price">{formatMoney(product.priceCents)}</div>
 
       <div className="product-quantity-container">
         <select value={quantity} onChange={selectQuantity}>
@@ -63,8 +65,7 @@ export function Product({ product, loadCart }) {
         Added
       </div>
 
-      <button className="add-to-cart-button button-primary"
-        onClick={addToCart}>
+      <button className="add-to-cart-button button-primary" onClick={addToCart}>
         Add to Cart
       </button>
     </div>
